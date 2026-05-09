@@ -4,7 +4,7 @@
       stages {
           stage('Checkout') {
               steps {
-                  echo 'Code has been checked out from GitHub!'
+                  echo 'Code checked out from GitHub!'
               }
           }
 
@@ -14,9 +14,10 @@
               }
           }
 
-          stage('Print Message') {
+          stage('Run Script') {
               steps {
-                  echo "Hello from Jenkins! Build number: ${env.BUILD_NUMBER}"
+                  sh 'chmod +x greet.sh'
+                  sh './greet.sh'
               }
           }
       }
