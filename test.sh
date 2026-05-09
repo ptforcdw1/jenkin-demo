@@ -6,7 +6,7 @@
   FAIL=0
 
   # Test 1
-  if [ $((2 + 2)) -eq 4 ]; then
+  if [ $((2 + 2)) -eq 45 ]; then
       echo "✓ Test 1 passed: math works"
       PASS=$((PASS + 1))
   else
