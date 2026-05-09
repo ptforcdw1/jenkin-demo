@@ -1,4 +1,4 @@
-  pipeline {
+pipeline {
       agent any
 
       stages {
@@ -8,26 +8,27 @@
               }
           }
 
-          stage('List Files') {
-              steps {
-                  sh 'ls -la'
-              }
-          }
-
           stage('Run Script') {
               steps {
                   sh 'chmod +x greet.sh'
                   sh './greet.sh'
               }
           }
+
+          stage('Run Tests') {
+              steps {
+                  sh 'chmod +x test.sh'
+                  sh './test.sh'
+              }
+          }
       }
 
       post {
           success {
-              echo 'Pipeline finished successfully!'
+              echo 'All stages passed!'
           }
           failure {
-              echo 'Something went wrong.'
+              echo 'Build failed — check the test output above.'
           }
       }
   }
